@@ -15,10 +15,15 @@ RUN npm install -g paperclipai
 
 # Install Claude Code CLI using native installer
 RUN curl -fsSL https://claude.ai/install.sh | bash && \
-    # Symlink to make it available globally
-    ln -sf /root/.local/bin/claude /usr/local/bin/claude && \
-    # Verify installation
-    claude --version || echo "Claude installation check"
+    # List what was installed
+    ls -la /root/.local/bin/ || echo "No .local/bin directory" && \
+    find /root -name "claude" -type f 2>/dev/null || echo "Claude binary not found"
+
+# Add Claude to PATH
+ENV PATH="/root/.local/bin:${PATH}"
+
+# Verify Claude is accessible
+RUN which claude && claude --version || echo "WARNING: Claude not accessible"
 
 # Set working directory
 WORKDIR /app
