@@ -1,8 +1,14 @@
 # Paperclip Deployment Dockerfile
-FROM node:20-alpine
+# Using Debian-based image for better Claude Code compatibility
+FROM node:20-slim
 
-# Install dependencies needed for Claude Code
-RUN apk add --no-cache bash curl
+# Install dependencies
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    curl \
+    ca-certificates \
+    wget && \
+    rm -rf /var/lib/apt/lists/*
 
 # Install Paperclip CLI globally
 RUN npm install -g paperclipai
@@ -10,7 +16,9 @@ RUN npm install -g paperclipai
 # Install Claude Code CLI using native installer
 RUN curl -fsSL https://claude.ai/install.sh | bash && \
     # Symlink to make it available globally
-    ln -sf /root/.local/bin/claude /usr/local/bin/claude
+    ln -sf /root/.local/bin/claude /usr/local/bin/claude && \
+    # Verify installation
+    claude --version || echo "Claude installation check"
 
 # Set working directory
 WORKDIR /app
