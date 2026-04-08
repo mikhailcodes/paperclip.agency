@@ -10,8 +10,8 @@ WORKDIR /app
 # Create instance directory
 RUN mkdir -p /app/instance
 
-# Copy configuration files (if any custom configs)
-COPY config.json /app/instance/config.json 2>/dev/null || true
+# Copy configuration files
+COPY config.json /app/instance/config.json
 
 # Expose port
 EXPOSE 3100
