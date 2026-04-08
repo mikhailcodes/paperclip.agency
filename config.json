@@ -32,7 +32,7 @@
     }
   },
   "secrets": {
-    "provider": "environment",
+    "provider": "local_encrypted",
     "strictMode": false
   }
 }
