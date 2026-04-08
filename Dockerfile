@@ -1,14 +1,14 @@
 # Paperclip Deployment Dockerfile
 FROM node:20-alpine
 
-# Install Paperclip CLI and Claude CLI globally
-RUN npm install -g paperclipai @anthropic-ai/claude-cli
+# Install Paperclip CLI and Claude Code CLI globally
+RUN npm install -g paperclipai @anthropic-ai/claude-code
 
 # Set working directory
 WORKDIR /app
 
-# Create instance directory
-RUN mkdir -p /app/instance
+# Create instance and workspaces directories
+RUN mkdir -p /app/instance /app/instance/workspaces
 
 # Copy configuration files
 COPY config.json /app/instance/config.json
