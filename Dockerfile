@@ -2,7 +2,7 @@
 FROM node:20-alpine
 
 # Install Paperclip CLI globally
-RUN npm install -g @paperclipai/cli
+RUN npm install -g paperclipai
 
 # Set working directory
 WORKDIR /app
