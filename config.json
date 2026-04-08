@@ -5,19 +5,24 @@
     "updatedAt": "2026-04-08T00:00:00.000Z"
   },
   "database": {
-    "mode": "postgres"
+    "mode": "postgres",
+    "postgres": {
+      "connectionStringEnvVar": "DATABASE_URL"
+    }
   },
   "logging": {
     "mode": "cloud"
   },
   "server": {
-    "deploymentMode": "local_trusted",
-    "exposure": "private",
+    "deploymentMode": "authenticated",
+    "exposure": "public",
     "host": "0.0.0.0",
     "port": 3100,
     "serveUi": true
   },
   "auth": {
+    "baseUrlMode": "explicit",
+    "publicBaseUrl": "https://paperclip-agents-production.up.railway.app",
     "disableSignUp": false
   },
   "telemetry": {
