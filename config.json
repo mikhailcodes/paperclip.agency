@@ -1,0 +1,36 @@
+{
+  "$meta": {
+    "version": 1,
+    "source": "railway-deployment"
+  },
+  "database": {
+    "mode": "external-postgres"
+  },
+  "logging": {
+    "mode": "stdout"
+  },
+  "server": {
+    "deploymentMode": "production",
+    "exposure": "public",
+    "host": "0.0.0.0",
+    "port": 3100,
+    "serveUi": true
+  },
+  "auth": {
+    "baseUrlMode": "auto",
+    "disableSignUp": false
+  },
+  "telemetry": {
+    "enabled": true
+  },
+  "storage": {
+    "provider": "local_disk",
+    "localDisk": {
+      "baseDir": "/app/instance/storage"
+    }
+  },
+  "secrets": {
+    "provider": "environment",
+    "strictMode": false
+  }
+}
