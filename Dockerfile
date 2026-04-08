@@ -13,6 +13,12 @@ RUN mkdir -p /app/instance
 # Copy configuration files
 COPY config.json /app/instance/config.json
 
+# Install Paperclip plugins
+RUN mkdir -p /root/.paperclip/plugins && \
+    cd /root/.paperclip/plugins && \
+    npm init -y && \
+    npm install @yesterday-ai/paperclip-plugin-company-wizard@^0.1.15 paperclip-plugin-slack@^2.0.6
+
 # Expose port
 EXPOSE 3100
 
