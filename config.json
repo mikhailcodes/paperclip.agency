@@ -1,16 +1,17 @@
 {
   "$meta": {
     "version": 1,
-    "source": "railway-deployment"
+    "source": "onboard",
+    "updatedAt": "2026-04-08T00:00:00.000Z"
   },
   "database": {
-    "mode": "external-postgres"
+    "mode": "postgres"
   },
   "logging": {
-    "mode": "stdout"
+    "mode": "cloud"
   },
   "server": {
-    "deploymentMode": "production",
+    "deploymentMode": "authenticated",
     "exposure": "public",
     "host": "0.0.0.0",
     "port": 3100,
@@ -30,7 +31,7 @@
     }
   },
   "secrets": {
-    "provider": "environment",
+    "provider": "local_encrypted",
     "strictMode": false
   }
 }
