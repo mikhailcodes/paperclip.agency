@@ -7,7 +7,7 @@
   "database": {
     "mode": "postgres",
     "postgres": {
-      "connectionStringEnvVar": "DATABASE_URL"
+      "connectionString": "$DATABASE_URL"
     }
   },
   "logging": {
